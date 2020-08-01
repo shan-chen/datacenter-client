@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46d8e9e7-526a-4f6c-86c7-ad2d3067126b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1fTskpne5otIwpOBrJgDW3IrG84" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../datacenter" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1621" y="137" key="EditFileWatcherDialog" timestamp="1596263878835">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="-1621" y="137" key="EditFileWatcherDialog/0.0.1280.720/-1920.0.1280.720@-1920.0.1280.720" timestamp="1596263878835" />
+    <state x="-1499" y="116" key="FileChooserDialogImpl" timestamp="1596261707687">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="-1499" y="116" key="FileChooserDialogImpl/0.0.1280.720/-1920.0.1280.720@-1920.0.1280.720" timestamp="1596261707687" />
+    <state x="-1778" y="5" key="SettingsEditor" timestamp="1596263882519">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="-1778" y="5" key="SettingsEditor/0.0.1280.720/-1920.0.1280.720@-1920.0.1280.720" timestamp="1596263882519" />
+  </component>
+</project>
