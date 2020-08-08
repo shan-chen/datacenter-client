@@ -1,7 +1,12 @@
 package model
 
+type Article struct {
+	Id    string
+	Score float32
+}
+
 type QueryIDsRes struct {
-	A []string
+	A []Article
 }
 
 type QueryLog struct {
