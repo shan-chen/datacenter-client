@@ -16,7 +16,7 @@ func main() {
 	var peerName string
 	flag.StringVar(&configPath, "c", "", "config file path")
 	flag.StringVar(&orgName, "o", "", "org name")
-	flag.StringVar(&peerName,"p","","peer name")
+	flag.StringVar(&peerName, "p", "", "peer name")
 	flag.Parse()
 	sdk, err := fabsdk.New(config.FromFile(configPath))
 	if err != nil {
@@ -34,14 +34,21 @@ func main() {
 		log.WithError(err).Error("cannot get event client")
 		return
 	}
-	chainCodeReg, notify, err := ec.RegisterChaincodeEvent(business.ChainCodeID, business.EventName)
+	dataReg, dataNotify, err := ec.RegisterChaincodeEvent(business.ChainCodeID, business.DataEventName)
+	if err != nil {
+		log.WithError(err).Error("cannot register event")
+		return
+	}
+	mpcReg, mpcNotify, err := ec.RegisterChaincodeEvent(business.ChainCodeID, business.MpcEventName)
 	if err != nil {
 		log.WithError(err).Error("cannot register event")
 		return
 	}
 	log.Info("register success")
-	defer ec.Unregister(chainCodeReg)
+	defer ec.Unregister(dataReg)
+	defer ec.Unregister(mpcReg)
 
-	go business.EventHandler(channelClient, notify,peerName)
+	go business.DataEventHandler(channelClient, dataNotify, peerName)
+	go business.MpcEventHandler(channelClient, mpcNotify, peerName)
 	select {}
 }

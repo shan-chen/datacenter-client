@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-func EventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerName string) {
+func DataEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerName string) {
 	for {
 		select {
 		case event, ok := <-notify:
@@ -55,24 +55,4 @@ func EventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerName s
 			}
 		}
 	}
-}
-
-func Query(client *channel.Client, method string, args [][]byte) (channel.Response, error) {
-	log.WithField("method", method).Info("query begin")
-	req := channel.Request{
-		ChaincodeID: ChainCodeID,
-		Fcn:         method,
-		Args:        args,
-	}
-	return client.Query(req, channel.WithTargetEndpoints(Peer))
-}
-
-func Execute(client *channel.Client, method string, args [][]byte) (channel.Response, error) {
-	log.WithField("method", method).Info("execute begin")
-	req := channel.Request{
-		ChaincodeID: ChainCodeID,
-		Fcn:         method,
-		Args:        args,
-	}
-	return client.Execute(req)
 }
