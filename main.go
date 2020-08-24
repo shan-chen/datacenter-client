@@ -34,14 +34,14 @@ func main() {
 		log.WithError(err).Error("cannot get event client")
 		return
 	}
-	dataReg, dataNotify, err := ec.RegisterChaincodeEvent(business.ChainCodeID, business.DataEventName)
+	dataReg, dataNotify, err := ec.RegisterChaincodeEvent(business.DataChainCodeID, business.DataEventName)
 	if err != nil {
-		log.WithError(err).Error("cannot register event")
+		log.WithError(err).Error("cannot register data event")
 		return
 	}
-	mpcReg, mpcNotify, err := ec.RegisterChaincodeEvent(business.ChainCodeID, business.MpcEventName)
+	mpcReg, mpcNotify, err := ec.RegisterChaincodeEvent(business.MpcChainCodeID, business.MpcEventName)
 	if err != nil {
-		log.WithError(err).Error("cannot register event")
+		log.WithError(err).Error("cannot register mpc event")
 		return
 	}
 	log.Info("register success")
