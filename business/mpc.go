@@ -3,7 +3,6 @@ package business
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/datacenter-apiserver/common"
 	"github.com/datacenter-client/model"
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
@@ -28,7 +27,7 @@ func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNam
 				continue
 			}
 			taskMap[data.Nonce] = append(taskMap[data.Nonce], data)
-			if len(taskMap[data.Nonce]) == common.TotalPeerNumber {
+			if len(taskMap[data.Nonce]) == 2 {
 				var args [][]byte
 				for _, item := range taskMap[data.Nonce] {
 					args = append(args, []byte(item.Data))
