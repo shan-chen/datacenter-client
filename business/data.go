@@ -17,7 +17,7 @@ func DataEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNa
 		select {
 		case event, ok := <-notify:
 			if ok {
-				resp, err := Query(client, "queryIDs", [][]byte{event.Payload})
+				resp, err := Query(DataChainCodeID, client, "queryIDs", [][]byte{event.Payload})
 				if err != nil {
 					log.WithError(err).Error("query failed")
 					continue
@@ -46,7 +46,7 @@ func DataEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNa
 					continue
 				}
 				args := [][]byte{[]byte(peerName), bytesData, []byte(strconv.FormatInt(time.Now().Unix(), 10))}
-				_, err = Execute(client, "logQuery", args)
+				_, err = Execute(DataChainCodeID, client, "logQuery", args)
 				if err != nil {
 					log.WithError(err).Error("log query failed")
 				}

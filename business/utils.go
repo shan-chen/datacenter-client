@@ -5,20 +5,20 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-func Query(client *channel.Client, method string, args [][]byte) (channel.Response, error) {
+func Query(cc string, client *channel.Client, method string, args [][]byte) (channel.Response, error) {
 	log.WithField("method", method).Info("query begin")
 	req := channel.Request{
-		ChaincodeID: ChainCodeID,
+		ChaincodeID: cc,
 		Fcn:         method,
 		Args:        args,
 	}
 	return client.Query(req, channel.WithTargetEndpoints(Peer))
 }
 
-func Execute(client *channel.Client, method string, args [][]byte) (channel.Response, error) {
+func Execute(cc string, client *channel.Client, method string, args [][]byte) (channel.Response, error) {
 	log.WithField("method", method).Info("execute begin")
 	req := channel.Request{
-		ChaincodeID: ChainCodeID,
+		ChaincodeID: cc,
 		Fcn:         method,
 		Args:        args,
 	}

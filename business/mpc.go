@@ -18,6 +18,7 @@ func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNam
 			if !ok {
 				return
 			}
+      log.Info("receive mpc event")
 			var data model.MpcTask
 			if err := json.Unmarshal(event.Payload, &data); err != nil {
 				log.WithError(err).Error("unmarshal failed")
@@ -33,7 +34,7 @@ func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNam
 					args = append(args, []byte(item.Data))
 				}
 				success := true
-				resp, err := Execute(client, "executeMpcTask", args)
+				resp, err := Execute(MpcChainCodeID, client, "executeMpcTask", args)
 				if err != nil {
 					log.WithError(err).Error("executeMpcTask failed")
 					success = false
