@@ -7,7 +7,7 @@ import (
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/event"
 	"github.com/hyperledger/fabric-sdk-go/pkg/core/config"
 	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
-	log "github.com/sirupsen/logrus"
+	//log "github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -20,31 +20,31 @@ func main() {
 	flag.Parse()
 	sdk, err := fabsdk.New(config.FromFile(configPath))
 	if err != nil {
-		log.WithError(err).Error("cannot load config file")
+		business.Log.WithError(err).Error("cannot load config file")
 		return
 	}
 	ccp := sdk.ChannelContext(business.ChannelID, fabsdk.WithOrg(orgName), fabsdk.WithUser(business.UserName))
 	channelClient, err := channel.New(ccp)
 	if err != nil {
-		log.WithError(err).Error("cannot get channel client")
+		business.Log.WithError(err).Error("cannot get channel client")
 		return
 	}
 	ec, err := event.New(ccp, event.WithBlockEvents())
 	if err != nil {
-		log.WithError(err).Error("cannot get event client")
+		business.Log.WithError(err).Error("cannot get event client")
 		return
 	}
 	dataReg, dataNotify, err := ec.RegisterChaincodeEvent(business.DataChainCodeID, business.DataEventName)
 	if err != nil {
-		log.WithError(err).Error("cannot register data event")
+		business.Log.WithError(err).Error("cannot register data event")
 		return
 	}
 	mpcReg, mpcNotify, err := ec.RegisterChaincodeEvent(business.MpcChainCodeID, business.MpcEventName)
 	if err != nil {
-		log.WithError(err).Error("cannot register mpc event")
+		business.Log.WithError(err).Error("cannot register mpc event")
 		return
 	}
-	log.Info("register success")
+	business.Log.Info("register success")
 	defer ec.Unregister(dataReg)
 	defer ec.Unregister(mpcReg)
 
