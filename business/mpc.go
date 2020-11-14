@@ -3,11 +3,12 @@ package business
 import (
 	"bytes"
 	"encoding/json"
+	"net/http"
+
 	"github.com/datacenter-client/model"
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
 	log "github.com/sirupsen/logrus"
-	"net/http"
 )
 
 func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerName string) {
@@ -18,7 +19,7 @@ func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNam
 			if !ok {
 				return
 			}
-      log.Info("receive mpc event")
+			log.Info("receive mpc event")
 			var data model.MpcTask
 			if err := json.Unmarshal(event.Payload, &data); err != nil {
 				log.WithError(err).Error("unmarshal failed")

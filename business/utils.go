@@ -21,5 +21,5 @@ func Execute(cc string, client *channel.Client, method string, args [][]byte) (c
 		Fcn:         method,
 		Args:        args,
 	}
-	return client.Execute(req, channel.WithTargetEndpoints("peer1.org1.example.com","peer2.org1.example.com","peer1.org2.example.com","peer2.org2.example.com"))
+	return client.Execute(req, channel.WithTargetEndpoints("peer1.org1.example.com", "peer2.org1.example.com", "peer1.org2.example.com", "peer2.org2.example.com"))
 }

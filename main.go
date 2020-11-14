@@ -2,12 +2,12 @@ package main
 
 import (
 	"flag"
+
 	"github.com/datacenter-client/business"
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/event"
 	"github.com/hyperledger/fabric-sdk-go/pkg/core/config"
 	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
-	//log "github.com/sirupsen/logrus"
 )
 
 func main() {

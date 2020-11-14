@@ -16,8 +16,8 @@ const (
 var Log *logrus.Logger
 
 func init() {
-  Log = logrus.New()
-  Log.SetFormatter(&logrus.TextFormatter{
-    FullTimestamp: true,
-  })
+	Log = logrus.New()
+	Log.SetFormatter(&logrus.TextFormatter{
+		FullTimestamp: true,
+	})
 }
