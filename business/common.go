@@ -6,11 +6,10 @@ const (
 	UserName        = "Admin"
 	OrgName         = "Org1"
 	ChannelID       = "mych"
-	DataChainCodeID = "ss"
+	DataChainCodeID = "data"
 	MpcChainCodeID  = "mpc"
 	DataEventName   = "data"
 	MpcEventName    = "mpc"
-	Peer            = "peer1.org1.example.com"
 	URLPrefix       = "http://localhost:8888"
 )
 

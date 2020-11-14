@@ -28,7 +28,7 @@ func MpcEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNam
 				continue
 			}
 			taskMap[data.Nonce] = append(taskMap[data.Nonce], data)
-			if len(taskMap[data.Nonce]) == 2 {
+			if len(taskMap[data.Nonce]) == 3 {
 				var args [][]byte
 				for _, item := range taskMap[data.Nonce] {
 					args = append(args, []byte(item.Data))

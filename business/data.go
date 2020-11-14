@@ -28,7 +28,7 @@ func DataEventHandler(client *channel.Client, notify <-chan *fab.CCEvent, peerNa
 }
 
 func handler(client *channel.Client, peerName string, keyword string) {
-  resp, err := Query(DataChainCodeID, client, "queryIDs", [][]byte{[]byte(keyword)})
+  resp, err := Query(DataChainCodeID, client, "queryIDs", [][]byte{[]byte(keyword)}, peerName)
   Log.Info("query finished")
 	if err != nil {
 	  Log.WithError(err).Error("query failed")
